@@ -12,7 +12,8 @@ import {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  // uri: "http://localhost:5000/graphql",
+  uri: "https://dailygram-admin2023-api.onrender.com/graphql",
   cache: new InMemoryCache(),
 });
 
