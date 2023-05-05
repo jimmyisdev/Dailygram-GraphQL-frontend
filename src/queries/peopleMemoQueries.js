@@ -5,7 +5,8 @@ const GET_PEOPLEMEMOS = gql`
     peopleMemos {
         id
         name
-        description
+        organization
+        place
     }
   }
 `;

@@ -6,17 +6,20 @@ const GET_TASKS = gql`
         id
         name
         description
+        level
+        isCompleted
     }
   }
 `;
 const GET_TASK = gql`
     query getTask($id: ID) {
     task(id: $id) {
-        id
         name
-        description
+        
     }
   }
 `;
+
+
 
 export { GET_TASKS, GET_TASK };

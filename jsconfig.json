@@ -1,8 +1,7 @@
 {
-    "compilerOptions": {
-      "baseUrl": "src"
-    },
-    "include": ["src", "src/components/Expenditures.jsx"],
-    "exclude": ["node_modules", "dist"]
-  }
-  
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src", "src/Expenditures.jsx"],
+  "exclude": ["node_modules", "dist"]
+}

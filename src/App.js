@@ -1,15 +1,20 @@
-import Tasks from "components/Tasks";
-import "./App.css";
-import Expenditures from "components/Expenditures";
-import PeopleMemos from "components/PeopleMemos";
+// import Tasks from "Tasks";
+// import Expenditures from "Expenditures";
+// import PeopleMemos from "PeopleMemos";
+// import UserSec from "components/section/SectUser/SectUser";
+import Header from "components/section/Header/Header";
+import SectTabs from "components/section/SectTabs/SectTabs";
 
 function App() {
-
   return (
     <div className="App">
-      <Expenditures />
-      <Tasks />
-      <PeopleMemos />
+      <Header />
+      <SectTabs/>
+      {/* <UserSec /> */}
+
+      {/* <Expenditures /> */}
+      {/* <Tasks /> */}
+      {/* <PeopleMemos /> */}
     </div>
   );
 }
