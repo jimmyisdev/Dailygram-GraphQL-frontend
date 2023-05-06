@@ -1,12 +1,14 @@
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import DataTable from "components/shared/DataTable/DataTable";
 import { PeopleMemoDataField, PeopleMemoDataHead } from "constants/constans";
-import { GET_PEOPLEMEMOS } from "queries/peopleMemoQueries";
+import { DELETE_PEOPLE_MEMO } from "mutations/peopleMemoMutations";
 import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
+import { GET_PEOPLEMEMO, GET_PEOPLEMEMOS } from "queries/peopleMemoQueries";
 
 export default function SectPeopleMemo() {
-  const [loadPeopleMemos, { called, loading, data,error }] = useLazyQuery(GET_PEOPLEMEMOS);
+  const [loadPeopleMemos, { called, loading, data, error }] =
+    useLazyQuery(GET_PEOPLEMEMOS);
 
   useEffect(() => {
     loadPeopleMemos();
@@ -18,10 +20,14 @@ export default function SectPeopleMemo() {
       {called && loading && <Spinner />}
       {called && !loading && (
         <DataTable
-        sectTitle="peopleMemo"
+          sectTitle="peopleMemo"
           dataHead={PeopleMemoDataHead}
           tableField={PeopleMemoDataField}
           data={data?.peopleMemos}
+          //func
+          deleteItem={DELETE_PEOPLE_MEMO}
+          getItem={GET_PEOPLEMEMO}
+          getItems={GET_PEOPLEMEMOS}
         />
       )}
       {!loading && <span>{error}</span>}

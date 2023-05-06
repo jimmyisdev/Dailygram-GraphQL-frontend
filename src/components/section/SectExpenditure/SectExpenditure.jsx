@@ -1,7 +1,8 @@
 import { useLazyQuery } from "@apollo/client";
 import DataTable from "components/shared/DataTable/DataTable";
 import { ExpenditureDataField, ExpenditureDataHead } from "constants/constans";
-import { GET_EXPENDITURES } from "queries/expenditureQueries";
+import { DELETE_EXPENDITURE } from "mutations/expenditureMutations";
+import { GET_EXPENDITURE, GET_EXPENDITURES } from "queries/expenditureQueries";
 import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 
@@ -23,6 +24,10 @@ export default function SectExpenditure() {
           dataHead={ExpenditureDataHead}
           tableField={ExpenditureDataField}
           data={data?.expenditures}
+          //func
+          deleteItem={DELETE_EXPENDITURE}
+          getItem={GET_EXPENDITURE}
+          getItems={GET_EXPENDITURES}
         />
       )}
       {!loading && <span>{error}</span>}
