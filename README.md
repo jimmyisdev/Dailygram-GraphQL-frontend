@@ -1,7 +1,7 @@
 # Dailygram Admin (Frontend Part)
 
 ## Description
-A admin dashboard to control Dailygram
+An admin dashboard to control Dailygram APP
 
 ### Tool 
 1. CRA(React.js)
