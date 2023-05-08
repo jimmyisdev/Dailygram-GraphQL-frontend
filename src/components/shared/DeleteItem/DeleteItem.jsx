@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { Button } from "react-bootstrap";
 
 export default function DeleteUser({ id, getAllItems, deleteItem }) {
-  const [deleteItemFunc, { data, loading, error }] = useMutation(deleteItem, {
+  const [deleteItemFunc, { loading }] = useMutation(deleteItem, {
     refetchQueries: [{ query: getAllItems }],
   });
   return (

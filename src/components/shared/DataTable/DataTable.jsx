@@ -21,8 +21,8 @@ export default function DataTable({
           direction="horizontal"
           className={`${styles.table_layout} ${styles.head_row}`}
         >
-          {dataHead.map((item) => (
-            <div>
+          {dataHead.map((item, index) => (
+            <div key={item+ index}>
               <span key={sectTitle + item}>{item}</span>
             </div>
           ))}
@@ -46,7 +46,7 @@ export default function DataTable({
                   val = val.toUpperCase();
                 }
                 return (
-                  <div key={sectTitle + item.id + fieldItem}>
+                  <div key={item.id + fieldItem}>
                     <span>{val}</span>
                   </div>
                 );
