@@ -20,7 +20,6 @@ export default function AddUserItem() {
   const [createUser, { loading, error }] = useMutation(CREATE_USER, {
     refetchQueries: [{ query: GET_USERS }],
   });
-
   function handleChange(e) {
     e.preventDefault();
     const { name, value } = e.target;

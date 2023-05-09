@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import { GET_PEOPLEMEMO, GET_PEOPLEMEMOS } from "queries/peopleMemoQueries";
 
-export default function SectPeopleMemo() {
+export default function SectPeopleMemo({currentTab}) {
   const [loadPeopleMemos, { called, loading, data, error }] =
     useLazyQuery(GET_PEOPLEMEMOS);
 
   useEffect(() => {
-    loadPeopleMemos();
-  }, [loadPeopleMemos]);
+    if (currentTab === "connections") loadPeopleMemos();
+  }, [loadPeopleMemos, currentTab]);
+
   return (
     <section>
       {/* filter */}

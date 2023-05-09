@@ -1,28 +1,44 @@
+import React, { lazy, Suspense, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import SectUser from "../SectUser/SectUser";
-import SectTask from "../SectTask/SectTask";
-import SectPeopleMemo from "../SectPeopleMemo/SectPeopleMemo";
-import SectExpenditure from "../SectExpenditure/SectExpenditure";
+const SectUser = lazy(() => import("../SectUser/SectUser"));
+const SectTask = lazy(() => import("../SectTask/SectTask"));
+const SectPeopleMemo = lazy(() => import("../SectPeopleMemo/SectPeopleMemo"));
+const SectExpenditure = lazy(() =>
+  import("../SectExpenditure/SectExpenditure")
+);
 
 export default function SectTabs() {
+  const [currentTab, setCurrentTab] = useState("users");
+
   return (
     <Tabs
       defaultActiveKey="users"
       transition={false}
+      activeKey={currentTab}
+      onSelect={(currentTab) => setCurrentTab(currentTab)}
       className="mb-3"
     >
       <Tab eventKey="users" title="User List">
-        <SectUser />
+        <Suspense fallback={<Spinner />}>
+          <SectUser currentTab={currentTab} />
+        </Suspense>
       </Tab>
       <Tab eventKey="tasks" title="Task List">
-        <SectTask />
+        <Suspense fallback={<Spinner />}>
+          <SectTask currentTab={currentTab} />
+        </Suspense>
       </Tab>
-      <Tab eventKey="peopleMemos" title="Connection List">
-        <SectPeopleMemo />
+      <Tab eventKey="connections" title="Connection List">
+        <Suspense fallback={<Spinner />}>
+          <SectPeopleMemo currentTab={currentTab} />
+        </Suspense>
       </Tab>
       <Tab eventKey="expenditures" title="Expenditure List">
-        <SectExpenditure />
+        <Suspense fallback={<Spinner />}>
+          <SectExpenditure currentTab={currentTab} />
+        </Suspense>
       </Tab>
     </Tabs>
   );

@@ -6,12 +6,13 @@ import { GET_TASK, GET_TASKS } from "queries/taskQueries";
 import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 
-export default function SectTask() {
+export default function SectTask({ currentTab }) {
   const [loadTasks, { called, loading, data, error }] = useLazyQuery(GET_TASKS);
 
   useEffect(() => {
-    loadTasks();
-  }, [loadTasks]);
+    if (currentTab === "tasks") loadTasks();
+  }, [loadTasks, currentTab]);
+
   return (
     <section>
       {/* filter */}

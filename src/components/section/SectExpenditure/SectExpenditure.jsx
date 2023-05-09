@@ -6,13 +6,14 @@ import { GET_EXPENDITURE, GET_EXPENDITURES } from "queries/expenditureQueries";
 import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 
-export default function SectExpenditure() {
+export default function SectExpenditure({ currentTab }) {
   const [loadExpenditures, { called, loading, data, error }] =
     useLazyQuery(GET_EXPENDITURES);
 
   useEffect(() => {
-    loadExpenditures();
-  }, [loadExpenditures]);
+    if (currentTab === "expenditures") loadExpenditures();
+  }, [loadExpenditures, currentTab]);
+
   return (
     <section>
       {/* filter */}

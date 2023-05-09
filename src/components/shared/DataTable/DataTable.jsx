@@ -1,7 +1,7 @@
 import styles from "./DataTable.module.scss";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Stack from "react-bootstrap/Stack";
-import DeleteUser from "../DeleteItem/DeleteItem";
+import DeleteItem from "../DeleteItem/DeleteItem";
 import ShowDetails from "../ShowDetails/ShowDetails";
 export default function DataTable({
   sectTitle,
@@ -52,7 +52,7 @@ export default function DataTable({
                 );
               })}
               <ButtonGroup className={`${styles.actions} mb-2`}>
-                <DeleteUser
+                <DeleteItem
                   id={item.id}
                   sectTitle={sectTitle}
                   deleteItem={deleteItem}

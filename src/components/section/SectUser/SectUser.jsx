@@ -15,6 +15,7 @@ export default function SectUser() {
   useEffect(() => {
     loadUsers();
   }, [loadUsers]);
+  
   return (
     <section>
       {/* filter */}
