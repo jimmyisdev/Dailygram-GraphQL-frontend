@@ -21,15 +21,18 @@ export default function AddUserItem() {
     refetchQueries: [{ query: GET_USERS }],
   });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(name, value);
     setUserData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-  };
+  }
+  function handleSubmit() {
+    createUser({ variables: { input: userData } });
+    handleClose();
+  }
 
   return (
     <>
@@ -60,11 +63,7 @@ export default function AddUserItem() {
               );
             })}
             {error && <span>{error}</span>}
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={() => createUser({ variables: { input: userData } })}
-            >
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
               {loading ? "Submitting" : "Submit"}
             </Button>
           </Form>
